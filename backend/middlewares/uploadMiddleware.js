@@ -1,9 +1,13 @@
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// ES module version (for backends with "type": "module" in package.json).
+// __dirname does not exist in ES modules, so we build it ourselves.
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Folder where uploaded images are saved: backend/uploads
-// (resolved from this file, so it works no matter where the server is started from)
 const UPLOAD_DIR = path.join(__dirname, '..', 'uploads');
 fs.mkdirSync(UPLOAD_DIR, { recursive: true }); // create it if it does not exist yet
 
@@ -21,11 +25,11 @@ const storage = multer.diskStorage({
 
 // File filter: only allow images
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Only .jpeg, .jpg and .png formats are allowed'), false);
+    cb(new Error('Only .jpeg, .jpg, .png and .webp formats are allowed'), false);
   }
 };
 
@@ -35,4 +39,4 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 }, // max 5 MB per file
 });
 
-module.exports = upload;
+export default upload;
