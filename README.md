@@ -13,15 +13,15 @@ An AI-powered interview preparation app. Enter your **target role**, **tech stac
 
 | Landing page | Create an account |
 |---|---|
-| ![Landing page](docs/screenshots/landing.png) | ![Sign up](docs/screenshots/signup.png) |
+| ![Landing page](screenshots/landing_page.jpg) | ![Create an account](screenshots/create_account.jpg) |
 
-| My Sessions | New prep session |
+| My Sessions | Session page with interview questions |
 |---|---|
-| ![My Sessions](docs/screenshots/dashboard.png) | ![New prep session](docs/screenshots/new-session.png) |
+| ![My Sessions](screenshots/session_page.jpg) | ![Interview questions](screenshots/question_page.jpg) |
 
-| Generated interview Q&A |
+| Generated question and answer |
 |---|
-| ![Interview Q&A](docs/screenshots/questions.png) |
+| ![Question and answer](screenshots/question_answer_page.jpg) |
 
 ---
 
@@ -69,6 +69,7 @@ interview-prep-ai/
 │       ├── src/         # React components and pages
 │       ├── index.html
 │       └── vite.config.js
+├── screenshots/         # Images used in this README
 └── .gitignore
 ```
 
